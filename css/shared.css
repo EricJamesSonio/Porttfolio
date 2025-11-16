@@ -1,4 +1,6 @@
-/* RESET */
+/* ===========================
+   RESET
+   =========================== */
 * {
   margin: 0;
   padding: 0;
@@ -18,96 +20,9 @@ body.dark {
   color: #eee;
 }
 
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  padding: 15px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 50;
-}
-
-body.dark .navbar {
-  background: #222;
-}
-
-.nav-content {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #3b82f6;
-}
-
-.theme-button {
-  margin-left: 20px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.8s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: 0.8s;
-}
-
-.slide-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: 0.8s;
-}
-
-.slide-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 25px;
-  background: #222;
-  color: #fff;
-  margin-top: 50px;
-}
 /* ===========================
    NAVBAR (shared on all pages)
    =========================== */
-
 .navbar {
   position: fixed;
   top: 0;
@@ -117,11 +32,12 @@ body.dark .navbar {
   color: #222;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   z-index: 1000;
+  transition: background 0.3s, color 0.3s;
 }
 
 body.dark .navbar {
   background: #111;
-  color: white;
+  color: #fff;
 }
 
 .nav-content {
@@ -151,7 +67,7 @@ body.dark .navbar {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: 0.25s;
+  transition: color 0.25s;
 }
 
 body.dark .nav-links a {
@@ -170,12 +86,12 @@ body.dark .nav-links a {
   border-radius: 6px;
   cursor: pointer;
   font-size: 18px;
-  transition: 0.25s;
+  transition: all 0.25s;
 }
 
 body.dark .theme-button {
   background: #333;
-  color: white;
+  color: #fff;
 }
 
 .theme-button:hover {
@@ -183,9 +99,55 @@ body.dark .theme-button {
 }
 
 /* ===========================
+   HERO / SECTION ANIMATIONS
+   =========================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+.footer {
+  text-align: center;
+  padding: 25px;
+  background: #222;
+  color: #fff;
+  margin-top: 50px;
+}
+
+/* ===========================
    NAVBAR MOBILE
    =========================== */
-
 @media (max-width: 750px) {
   .nav-content {
     flex-direction: column;
@@ -194,12 +156,15 @@ body.dark .theme-button {
   }
 
   .nav-links {
-    gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 14px;
   }
 
   .logo {
     margin-bottom: 5px;
   }
+}
+body.transition-enabled {
+  transition: background 0.3s, color 0.3s;
 }

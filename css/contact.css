@@ -27,9 +27,16 @@ body.dark .contact-intro {
   gap: 40px;
 }
 
+@media (max-width: 1024px) {
+  .contact-container {
+    gap: 30px;
+  }
+}
+
 @media (max-width: 800px) {
   .contact-container {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 }
 
@@ -71,7 +78,6 @@ body.dark .contact-form textarea {
 }
 
 /* CONTACT INFO */
-
 .contact-info {
   background: #f3f3f3;
   padding: 25px;
@@ -89,16 +95,57 @@ body.dark .contact-info {
 
 .socials {
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .socials a {
   display: inline-block;
-  margin-right: 12px;
   color: #007bff;
   text-decoration: none;
   font-weight: 600;
+  transition: color .2s;
 }
 
 .socials a:hover {
   text-decoration: underline;
+  color: #005ec9;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 100px 15px 40px;
+  }
+
+  .contact-page h1 {
+    font-size: 32px;
+  }
+
+  .contact-intro {
+    font-size: 16px;
+  }
+
+  .contact-info {
+    padding: 20px;
+  }
+
+  .contact-info h3 {
+    font-size: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .contact-form button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+body.transition-enabled {
+  transition: background 0.3s, color 0.3s;
 }

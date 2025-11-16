@@ -21,3 +21,41 @@
 body.dark .about-page p {
   color: #ccc;
 }
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 100px 15px 40px;
+  }
+
+  .about-page h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .about-page p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 80px 10px 30px;
+  }
+
+  .about-page h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .about-page p {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+}
+body.transition-enabled {
+  transition: background 0.3s, color 0.3s;
+}

@@ -1,3 +1,6 @@
+/* ===========================
+   TECH PAGE
+   =========================== */
 .tech-page {
   max-width: 1100px;
   margin: auto;
@@ -40,14 +43,62 @@ p[align="center"] {
 
 p[align="center"] img {
   height: 35px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 p[align="center"] img:hover {
   transform: scale(1.1);
 }
 
-/* Dark mode adjustments for badge containers (if needed) */
+/* Dark mode adjustments for badge images */
 body.dark p[align="center"] img {
   filter: brightness(1.1);
+}
+
+/* ===========================
+   RESPONSIVE ADJUSTMENTS
+   =========================== */
+@media (max-width: 800px) {
+  .tech-page {
+    padding: 100px 15px 40px;
+  }
+
+  .tech-page h1 {
+    font-size: 32px;
+  }
+
+  .tech-intro {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .tech-page h2 {
+    font-size: 24px;
+    margin: 25px 0 12px;
+  }
+
+  p[align="center"] img {
+    height: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tech-page h1 {
+    font-size: 28px;
+  }
+
+  .tech-intro {
+    font-size: 15px;
+  }
+
+  .tech-page h2 {
+    font-size: 22px;
+  }
+
+  p[align="center"] img {
+    height: 28px;
+  }
+}
+body.transition-enabled {
+  transition: background 0.3s, color 0.3s;
 }

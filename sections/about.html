@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me - Eric James Sonio</title>
 
-  <!-- Shared Global Styles -->
+  <!-- Styles -->
   <link rel="stylesheet" href="../css/shared.css">
-
-  <!-- Page-specific Styles -->
   <link rel="stylesheet" href="../css/about.css">
-
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <script>
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') document.documentElement.classList.add('dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('transition-enabled');
+    });
+  </script>
 </head>
 
 <body>
@@ -20,9 +25,8 @@
   <nav class="navbar">
     <div class="nav-content">
       <div class="logo">Eric James Sonio</div>
-
       <div class="nav-links">
-        <a href="../index.html#about">About</a>
+        <a href="../index.html#about" class="active">About</a>
         <a href="tech.html">Tech Stack</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
@@ -34,25 +38,21 @@
   <!-- ABOUT SECTION -->
   <section class="about-page fade-in">
     <h1>About Me</h1>
-
     <p>
       I'm a 4th-year Computer Science student at the College of Mary Immaculate.  
       I specialize in backend development, database design, and building scalable 
       applications with clean architecture and efficient structure.
     </p>
-
     <p>
       My passion lies in designing systems that work — reliable, optimized, and 
       well-structured. Whether I'm building APIs, working with SQL, or designing 
       a full-stack solution, I always focus on clarity and maintainability.
     </p>
-
     <p>
       Outside of coding, I’m also a musician and lead guitarist, a gym enthusiast, 
       and someone who loves continuous learning. I enjoy working in teams, solving 
       problems, and exploring new tools and technologies.
     </p>
-
     <p>
       Fun fact: I originally enrolled in BSBA by accident before switching to BSCS — 
       which made my first weeks in college unexpectedly hilarious.
@@ -64,6 +64,7 @@
     &copy; 2025 Eric James Sonio. All Rights Reserved.
   </footer>
 
+  <!-- MAIN JS for smooth dark mode + scroll animations -->
   <script src="../js/main.js"></script>
 </body>
 </html>

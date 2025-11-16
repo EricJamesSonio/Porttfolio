@@ -11,7 +11,22 @@
   <!-- Page-specific CSS -->
   <link rel="stylesheet" href="css/index.css">
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Early dark mode load to prevent flash -->
+  <style>
+    /* Hide body until theme is applied */
+    body { visibility: hidden; transition: background 0.3s, color 0.3s; }
+    body.transition-enabled { visibility: visible; }
+  </style>
+  <script>
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') document.documentElement.classList.add('dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('transition-enabled');
+    });
+  </script>
 </head>
 
 <body>
@@ -20,13 +35,11 @@
   <nav class="navbar">
     <div class="nav-content">
       <div class="logo">Eric James Sonio</div>
-
       <div class="nav-links">
         <a href="index.html#about">About</a>
         <a href="sections/tech.html">Tech Stack</a>
         <a href="sections/projects.html">Projects</a>
         <a href="sections/contact.html">Contact</a>
-
         <button id="themeToggle" class="theme-button">🌙</button>
       </div>
     </div>
@@ -62,6 +75,7 @@
     &copy; 2025 Eric James Sonio. All Rights Reserved.
   </footer>
 
+  <!-- MAIN JS for smooth dark mode + scroll animations -->
   <script src="js/main.js"></script>
 </body>
 </html>
