@@ -12,6 +12,9 @@ body {
   background: #f4f4f4;
   color: #222;
   transition: background 0.3s, color 0.3s;
+
+  /* Fix: Prevent content from hiding under navbar */
+  padding-top: 75px; /* matches navbar height */
 }
 
 /* Dark Mode */
@@ -103,7 +106,7 @@ body.dark .nav-links a {
   color: #3b82f6;
 }
 
-/* THEME BUTTON (new pill design) */
+/* THEME BUTTON - pill design */
 .theme-button {
   background: rgba(0,0,0,0.05);
   border: none;
@@ -131,14 +134,19 @@ body.dark .theme-button {
 @media (max-width: 750px) {
   .nav-content {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     padding: 12px;
   }
 
   .nav-links {
-    gap: 18px;
+    gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  /* Fix: navbar becomes taller → increase content offset */
+  body {
+    padding-top: 130px; /* mobile layout needs more space */
   }
 
   .navbar {
@@ -149,8 +157,4 @@ body.dark .theme-button {
 /* Smooth Body Transition */
 body.transition-enabled {
   transition: background 0.3s, color 0.3s;
-}
-/* Prevent content from hiding under fixed navbar */
-body {
-  padding-top: 80px; /* adjust based on navbar height */
 }
