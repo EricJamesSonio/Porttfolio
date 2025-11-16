@@ -16,155 +16,137 @@ body {
 
 /* Dark Mode */
 body.dark {
-  background: #111;
-  color: #eee;
+  background: #0d0d0d;
+  color: #e5e5e5;
 }
 
 /* ===========================
-   NAVBAR (shared on all pages)
+   NAVBAR NEW DESIGN
    =========================== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: white;
-  color: #222;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 10px 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   z-index: 1000;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, backdrop-filter 0.3s;
 }
 
 body.dark .navbar {
-  background: #111;
-  color: #fff;
+  background: rgba(17,17,17,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Navbar Container */
 .nav-content {
   max-width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 25px;
+  padding: 8px 25px;
 }
 
 /* LOGO */
 .logo {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: #3b82f6;
+  letter-spacing: -0.5px;
+  cursor: pointer;
 }
 
 /* NAV LINKS */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 26px;
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
-  color: #333;
+  color: #222;
   font-weight: 500;
+  font-size: 15px;
+  padding: 4px 0;
   transition: color 0.25s;
 }
 
 body.dark .nav-links a {
-  color: #ddd;
+  color: #e5e5e5;
+}
+
+/* Hover underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #3b82f6;
+  transition: width 0.3s;
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
   color: #3b82f6;
 }
 
-/* THEME BUTTON */
+/* THEME BUTTON (new pill design) */
 .theme-button {
-  background: #eee;
+  background: rgba(0,0,0,0.05);
   border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
+  padding: 6px 16px;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 18px;
-  transition: all 0.25s;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s;
 }
 
 body.dark .theme-button {
-  background: #333;
+  background: rgba(255,255,255,0.1);
   color: #fff;
 }
 
 .theme-button:hover {
-  transform: scale(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* ===========================
-   HERO / SECTION ANIMATIONS
-   =========================== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-
-.slide-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-
-.slide-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* ===========================
-   FOOTER
-   =========================== */
-.footer {
-  text-align: center;
-  padding: 25px;
-  background: #222;
-  color: #fff;
-  margin-top: 50px;
-}
-
-/* ===========================
-   NAVBAR MOBILE
+   MOBILE MENU STYLE
    =========================== */
 @media (max-width: 750px) {
   .nav-content {
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    padding: 12px;
   }
 
   .nav-links {
+    gap: 18px;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 14px;
   }
 
-  .logo {
-    margin-bottom: 5px;
+  .navbar {
+    backdrop-filter: blur(14px);
   }
 }
+
+/* Smooth Body Transition */
 body.transition-enabled {
   transition: background 0.3s, color 0.3s;
 }
