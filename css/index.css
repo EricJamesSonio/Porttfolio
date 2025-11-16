@@ -92,3 +92,57 @@
 body.transition-enabled {
   transition: background 0.3s, color 0.3s;
 }
+/* About Section */
+.about {
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px 80px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.about-card {
+  padding: 25px;
+  background: var(--card-bg, #fff);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform .2s, box-shadow .2s;
+}
+
+body.dark .about-card {
+  --card-bg: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.08);
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.about-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.about-card p {
+  line-height: 1.6;
+  font-size: 16px;
+  color: #444;
+}
+
+body.dark .about-card p {
+  color: #ccc;
+}

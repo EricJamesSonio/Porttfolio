@@ -58,4 +58,19 @@ body.dark .about-page p {
 }
 body.transition-enabled {
   transition: background 0.3s, color 0.3s;
+}.about-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 35px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+body.dark .about-subtitle {
+  color: #eee;
+}
+
+.about-intro p:first-child {
+  font-size: 20px;
+  font-weight: 500;
 }
