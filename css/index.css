@@ -1,18 +1,33 @@
-/* HERO */
+/* ===========================
+   HERO SECTION (Improved)
+   =========================== */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 120px 50px 50px;
-  background: linear-gradient(90deg, #3b82f6, #9333ea);
-  color: white;
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  padding: 130px 60px 60px;
+  background: linear-gradient(110deg, #3b82f6 0%, #9333ea 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/* Soft gradient glow overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25), transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.18), transparent 50%);
+  pointer-events: none;
 }
 
 .hero-left {
-  flex: 1 1 400px;
-  min-width: 250px;
+  flex: 1 1 450px;
+  min-width: 260px;
+  z-index: 2;
 }
 
 .hero-right {
@@ -20,64 +35,75 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 250px;
-  margin-top: 30px;
+  min-width: 260px;
+  margin-top: 35px;
+  z-index: 2;
 }
 
 .hero h1 {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 54px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  margin: 15px 0 25px;
-  font-size: 20px;
-  opacity: 0.9;
+  margin: 18px 0 30px;
+  font-size: 22px;
+  opacity: 0.95;
 }
 
+/* CTA Improved */
 .cta-button {
-  padding: 12px 30px;
-  background: white;
+  padding: 14px 36px;
+  background: #fff;
   color: #3b82f6;
-  font-weight: bold;
-  border-radius: 8px;
+  font-weight: 700;
+  border-radius: 12px;
   text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  transition: all 0.25s;
+  box-shadow: 0 4px 14px rgba(255,255,255,0.35);
 }
 
 .cta-button:hover {
-  background: #eee;
+  background: #f3f3f3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.4);
 }
 
+/* Hero Image with Glow */
 .hero-img {
-  width: 380px;       /* bigger image */
-  height: 380px;      /* bigger image */
-  max-width: 100%;    /* responsive */
+  width: 420px;
+  height: 420px;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 5px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 40px rgba(255,255,255,0.25);
+  transition: transform 0.4s;
 }
 
-/* ABOUT HOME SECTION */
-.about {
-  max-width: 900px;
-  margin: auto;
-  padding: 80px 20px;
+.hero-img:hover {
+  transform: scale(1.03);
 }
 
-.about h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 32px;
-}
-
-/* RESPONSIVE ADJUSTMENTS */
-@media (max-width: 768px) {
+/* ===========================
+   RESPONSIVE HERO
+   =========================== */
+@media (max-width: 900px) {
   .hero {
-    padding: 80px 20px 40px;
+    padding: 100px 30px 50px;
+    text-align: center;
+  }
+
+  .hero-right {
+    margin-top: 25px;
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 42px;
   }
 
   .hero p {
@@ -85,55 +111,89 @@
   }
 
   .hero-img {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
   }
 }
-body.transition-enabled {
-  transition: background 0.3s, color 0.3s;
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero-img {
+    width: 240px;
+    height: 240px;
+  }
 }
-/* About Section */
+
+
+/* ===========================
+   ABOUT SECTION IMPROVED
+   =========================== */
 .about {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: auto;
-  padding: 120px 20px 80px;
+  padding: 130px 25px 90px;
   text-align: center;
 }
 
 .about h2 {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 40px;
+  font-size: 46px;
+  font-weight: 800;
+  margin-bottom: 45px;
+  letter-spacing: -0.5px;
 }
 
+/* Cards Grid */
 .about-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  gap: 30px;
 }
 
+/* Modern Card */
 .about-card {
-  padding: 25px;
+  padding: 30px;
   background: var(--card-bg, #fff);
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: left;
-  transition: transform .2s, box-shadow .2s;
+  border-radius: 22px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .25s, box-shadow .25s, background .25s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light glow overlay */
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.about-card:hover::before {
+  opacity: 1;
+}
+
+/* Hover depth */
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 body.dark .about-card {
-  --card-bg: #1e1e1e;
-  box-shadow: 0 4px 12px rgba(255,255,255,0.08);
-}
-
-.about-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  --card-bg: #181818;
+  box-shadow: 0 6px 16px rgba(255,255,255,0.06);
 }
 
 .about-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 12px;
   font-weight: 700;
 }
 
@@ -145,4 +205,9 @@ body.dark .about-card {
 
 body.dark .about-card p {
   color: #ccc;
+}
+
+/* Smooth theme transition */
+body.transition-enabled {
+  transition: background 0.3s, color 0.3s;
 }

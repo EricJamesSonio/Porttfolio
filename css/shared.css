@@ -150,3 +150,7 @@ body.dark .theme-button {
 body.transition-enabled {
   transition: background 0.3s, color 0.3s;
 }
+/* Prevent content from hiding under fixed navbar */
+body {
+  padding-top: 80px; /* adjust based on navbar height */
+}
