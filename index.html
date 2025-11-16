@@ -206,7 +206,36 @@
   <footer class="footer">
     &copy; 2025 Eric James Sonio. All Rights Reserved.
   </footer>
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
 
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    // Toggle hamburger icon
+    const icon = mobileMenuBtn.textContent;
+    mobileMenuBtn.textContent = icon === '☰' ? '✕' : '☰';
+  });
+
+  // Close menu when clicking on a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.textContent = '☰';
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar')) {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.textContent = '☰';
+    }
+  });
+}
+</script>
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <!-- Main JavaScript -->
