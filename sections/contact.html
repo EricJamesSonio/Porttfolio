@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Eric James Sonio</title>
 
   <link rel="stylesheet" href="../css/shared.css">
@@ -22,7 +22,6 @@
         <a href="tech.html">Tech Stack</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html" class="active">Contact</a>
-
         <button id="themeToggle" class="theme-button">🌙</button>
       </div>
     </div>
@@ -40,50 +39,32 @@
 
       <!-- LEFT SIDE — MESSAGE FORM -->
       <form class="contact-form" id="contactForm">
-        <label>Name</label>
-        <input type="text" required placeholder="Your Name">
+        <label for="name">Name</label>
+        <input type="text" id="name" required placeholder="Your Name">
 
-        <label>Email</label>
-        <input type="email" required placeholder="your@email.com">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="your@email.com">
 
-        <label>Message</label>
-        <textarea rows="6" required placeholder="Write your message..."></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" rows="6" required placeholder="Write your message..."></textarea>
 
         <button type="submit">Send Message</button>
+        <p id="formMessage" style="display:none; margin-top:10px;"></p>
       </form>
 
       <!-- RIGHT SIDE — CONTACT INFO -->
-  <!-- RIGHT SIDE — CONTACT INFO -->
-  <div class="contact-info">
-    <h3>Connect</h3>
+      <div class="contact-info">
+        <h3>Connect</h3>
 
-    <p><strong>Email:</strong> ericjamessonio7@gmail.com</p>
-    <p><strong>Location:</strong> Pandi, Bulacan</p>
+        <p><strong>Email:</strong> ericjamessonio7@gmail.com</p>
+        <p><strong>Location:</strong> Pandi, Bulacan</p>
 
-    <div class="socials">
-      <!-- GitHub Icon -->
-      <a href="https://github.com/EricJamesSonio" target="_blank" class="social-icon" aria-label="GitHub">
-        <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.22.48-2.69-1.07-2.69-1.07-.36-.91-.88-1.15-.88-1.15-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.77-.2-3.64-.88-3.64-3.93 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.66 7.66 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.14 0 3.05-1.87 3.72-3.64 3.92.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-      </a>
-
-      <!-- LinkedIn Icon -->
-      <a href="https://www.linkedin.com/in/eric-james-sonio-32ba08365/" target="_blank" class="social-icon" aria-label="LinkedIn">
-        <svg height="24" width="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.12 8h4.76v16H.12V8zM8.72 8h4.57v2.21h.06c.64-1.21 2.21-2.48 4.55-2.48 4.86 0 5.76 3.2 5.76 7.36v8.91h-4.76v-7.91c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17v8.04H8.72V8z"/>
-        </svg>
-      </a>
-
-      <!-- Email Icon -->
-      <a href="mailto:ericjamessonio7@gmail.com" class="social-icon" aria-label="Email">
-        <svg height="24" width="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 13.065l-11.965-7.065h23.93L12 13.065zm0 2.87L.035 8.935v12.13h23.93V8.935L12 15.935z"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-
+        <div class="socials">
+          <a href="https://github.com/EricJamesSonio" target="_blank" class="social-icon">GitHub</a>
+          <a href="https://www.linkedin.com/in/eric-james-sonio-32ba08365/" target="_blank" class="social-icon">LinkedIn</a>
+          <a href="mailto:ericjamessonio7@gmail.com" class="social-icon">Email</a>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -92,7 +73,41 @@
     &copy; 2025 Eric James Sonio. All Rights Reserved.
   </footer>
 
+  <!-- JS -->
   <script src="../js/main.js"></script>
+
+  <!-- EmailJS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init('ZMSS1LVAAfJWzhQQR'); // Initialize with your public key
+
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
+
+      emailjs.send('service_c4zldhl', 'template_khkbo9r', templateParams)
+        .then(() => {
+          formMessage.textContent = "✅ Message sent successfully!";
+          formMessage.style.color = "green";
+          formMessage.style.display = "block";
+          form.reset();
+        })
+        .catch((error) => {
+          formMessage.textContent = "❌ Failed to send message. Please try again later.";
+          formMessage.style.color = "red";
+          formMessage.style.display = "block";
+          console.error('EmailJS Error:', error);
+        });
+    });
+  </script>
 
 </body>
 </html>
