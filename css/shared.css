@@ -14,7 +14,6 @@ body {
   transition: background 0.3s, color 0.3s;
 
   /* Fix: Prevent content from hiding under navbar */
-  padding-top: 75px; /* matches navbar height */
 }
 
 /* Dark Mode */
@@ -142,11 +141,6 @@ body.dark .theme-button {
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  /* Fix: navbar becomes taller → increase content offset */
-  body {
-    padding-top: 130px; /* mobile layout needs more space */
   }
 
   .navbar {

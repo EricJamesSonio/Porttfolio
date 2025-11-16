@@ -7,26 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
 
   // ===== DARK MODE SETUP =====
-  // Apply dark mode before transitions to prevent flash
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
   }
 
-  // Enable smooth transitions AFTER initial load
   document.body.classList.add("transition-enabled");
 
-  // Update theme toggle icon
   if (themeToggle) {
     themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 
-    // Toggle dark mode on click
     themeToggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
-
-      // Update button icon
       themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-
-      // Save preference to localStorage
       localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
     });
   }
@@ -48,3 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animated.forEach(el => observer.observe(el));
 });
+
+// =============================
+// FIX NAVBAR OVERLAPPING CONTENT
+// =============================
+
+function adjustBodyPadding() {
+  const nav = document.querySelector('.navbar');
+  if (nav) {
+    document.body.style.paddingTop = nav.offsetHeight + "px";
+  }
+}
+
+window.addEventListener("load", adjustBodyPadding);
+window.addEventListener("resize", adjustBodyPadding);
