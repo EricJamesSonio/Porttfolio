@@ -902,7 +902,7 @@ body.transition-enabled * {
   .contact-info {
     padding: 1.5rem;
   }
-}/* Mobile Navigation Styles */
+/* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
@@ -931,8 +931,9 @@ body.transition-enabled * {
     padding: 0.5rem 0;
   }
 
-  .theme-button {
+  .github-button {
     margin-top: 1rem;
+    width: auto;
   }
 
   .mobile-menu-btn {
@@ -946,4 +947,5 @@ body.transition-enabled * {
 .tech-section,
 .contact-section {
   scroll-margin-top: 80px;
+}
 }
