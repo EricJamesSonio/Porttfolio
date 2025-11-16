@@ -99,3 +99,10 @@ body.dark .project-card {
 body.dark .project-card p {
   color: #ccc;
 }
+.project-video {
+  width: 100%;
+  aspect-ratio: 16/9;   /* maintains a 16:9 ratio */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
