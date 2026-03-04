@@ -500,7 +500,6 @@ body.transition-enabled * {
   box-shadow: 0 6px 20px var(--shadow-lg);
 }
 
-/* ===== FIX: Projects grid uses block layout so JS display:block works in grid ===== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -514,7 +513,6 @@ body.transition-enabled * {
   border: 2px solid var(--border);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 20px var(--shadow-sm);
-  /* Ensure hidden cards don't leave gaps */
   min-width: 0;
 }
 
@@ -976,13 +974,11 @@ body.transition-enabled * {
     font-size: 0.85rem;
   }
 
-  /* KEY FIX: single column on mobile */
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
 
-  /* Ensure project cards are fully visible */
   .project-card {
     width: 100%;
     max-width: 100%;
