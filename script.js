@@ -2,10 +2,9 @@
 
 // ===== SCROLL ANIMATIONS =====
 const observerOptions = {
-  threshold: 0.2,
-  rootMargin: '0px 0px -50px 0px'
+  threshold: 0.05,
+  rootMargin: '0px 0px 0px 0px'
 };
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -33,11 +32,11 @@ filterBtns.forEach(btn => {
     // Filter projects
     const filter = btn.dataset.filter;
     projectCards.forEach(card => {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+    if (filter === 'all' || card.dataset.category === filter) {
+      card.style.display = '';  // ✅ lets CSS grid take over naturally
+    } else {
+      card.style.display = 'none';
+    }
     });
   });
 });
