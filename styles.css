@@ -127,23 +127,9 @@ body.transition-enabled * {
   box-shadow: 0 4px 12px var(--shadow-md);
 }
 
-/* Mobile Menu Toggle */
+/* Always hide hamburger */
 .mobile-menu-btn {
-  display: none;
-  background: var(--bg-accent);
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  font-size: 1.4rem;
-  color: var(--text-primary);
-  cursor: pointer;
-  padding: 0.4rem 0.7rem;
-  line-height: 1;
-  transition: all 0.3s ease;
-  z-index: 1001;
-}
-
-.mobile-menu-btn:hover {
-  border-color: var(--accent-primary);
+  display: none !important;
 }
 
 /* ===== HERO SECTION ===== */
@@ -792,7 +778,7 @@ body.transition-enabled * {
 }
 
 .github-button {
-  margin-top: 1rem;
+  margin-top: 0;
   width: auto;
 }
 
@@ -839,75 +825,57 @@ body.transition-enabled * {
   }
 }
 
-/* ===== MOBILE FIXES ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  /* --- Navbar --- */
+  /* Navbar stacks into two rows: logo on top, links below */
   .nav-content {
-    padding: 1rem 1.25rem;
-    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
   }
 
   .logo {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
-  /* Show hamburger button */
-  .mobile-menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: 3;
-  }
-
-  /* Slide-in mobile nav */
+  /* Links always visible in a centered wrapping row */
   .nav-links {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    right: 0;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
     width: 100%;
-    background: var(--bg-secondary);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1.5rem 1.5rem 2rem;
-    gap: 1.25rem;
-    box-shadow: 0 10px 30px var(--shadow-lg);
-    border-bottom: 2px solid var(--border);
-    transform: translateY(-110%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s ease;
-    max-height: calc(100vh - 65px);
-    overflow-y: auto;
-  }
-
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
+    /* Reset all slide-in overrides */
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 0 0.4rem !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
 
   .nav-links a {
-    font-size: 1.05rem;
-    width: 100%;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  /* GitHub icon in mobile nav - make it visible */
-  .nav-links .theme-button {
+    font-size: 0.82rem;
+    padding: 0.2rem 0;
+    border-bottom: none !important;
     width: auto;
-    display: inline-flex;
   }
 
-  /* --- Hero --- */
+  .nav-links .theme-button {
+    padding: 0.35rem 0.6rem;
+    font-size: 1rem;
+  }
+
+  /* Extra top padding for hero since navbar is now taller (two rows) */
   .hero {
-    padding: 6rem 1.5rem 3rem;
+    padding: 9rem 1.5rem 3rem;
   }
 
   .hero-text h1 {
@@ -930,7 +898,6 @@ body.transition-enabled * {
     height: 14rem;
   }
 
-  /* --- Sections --- */
   .section {
     padding: 4rem 1.5rem;
   }
@@ -949,7 +916,6 @@ body.transition-enabled * {
     margin-bottom: 3rem;
   }
 
-  /* --- Tech --- */
   .tech-section {
     padding: 4rem 1.5rem;
   }
@@ -963,7 +929,6 @@ body.transition-enabled * {
     padding: 1.5rem;
   }
 
-  /* --- Projects --- */
   .filters {
     gap: 0.5rem;
     margin-bottom: 2.5rem;
@@ -998,7 +963,6 @@ body.transition-enabled * {
     margin: 0 1.25rem 1.25rem;
   }
 
-  /* --- Contact --- */
   .contact-section {
     padding: 4rem 1.5rem;
   }
@@ -1025,13 +989,11 @@ body.transition-enabled * {
     padding: 0.75rem;
   }
 
-  /* --- Footer --- */
   .footer {
     padding: 2rem 1.5rem;
     font-size: 0.875rem;
   }
 
-  /* --- About --- */
   #about {
     padding: 40px 20px;
     margin: 30px auto;
@@ -1056,11 +1018,14 @@ body.transition-enabled * {
   }
 }
 
-/* Small Mobile Devices */
+/* Small Mobile */
 @media (max-width: 480px) {
-  .mobile-menu-btn {
-    font-size: 1.2rem;
-    padding: 0.35rem 0.6rem;
+  .nav-links a {
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    padding: 10rem 1.5rem 3rem;
   }
 
   .hero-text h1 {
