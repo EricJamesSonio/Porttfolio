@@ -1,7 +1,7 @@
 /* ============================================================
    ERIC JAMES SONIO — PORTFOLIO
    Aesthetic: Dark Editorial · Refined · Precise
-   Fonts: Playfair Display (display) + DM Sans (body)
+   Fonts: Playfair Display (display) + DM Mono (body/ui)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
@@ -34,9 +34,9 @@
   --violet:    #7b6cfa;
   --violet-dim: rgba(123,108,250,0.12);
 
-  /* Typography */
+  /* Typography — DM Mono is now the primary UI/body font */
   --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-body:    'DM Mono', monospace;
   --font-mono:    'DM Mono', monospace;
 
   /* Spacing */
@@ -54,7 +54,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   background: var(--ink);
   color: var(--text-primary);
   line-height: 1.7;
@@ -115,7 +115,6 @@ body::before {
   color: var(--text-primary);
   letter-spacing: -0.02em;
   line-height: 1;
-  /* Subtle gold initial */
   background: linear-gradient(135deg, var(--text-primary) 40%, var(--gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -129,10 +128,10 @@ body::before {
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-size: 0.825rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-secondary);
   text-decoration: none;
@@ -234,7 +233,6 @@ body::before {
   50% { transform: scale(1.15) translate(30px, -20px); }
 }
 
-/* Decorative horizontal rule */
 .hero-content {
   max-width: 1280px;
   width: 100%;
@@ -280,13 +278,16 @@ body::before {
   color: var(--gold);
 }
 
+/* Hero subtitle — now DM Mono */
 .hero-text p {
-  font-size: 1.05rem;
-  font-weight: 300;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   color: var(--text-secondary);
   line-height: 1.85;
   margin-bottom: 2.75rem;
-  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .hero-cta {
@@ -295,10 +296,10 @@ body::before {
   gap: 0.6rem;
   background: transparent;
   color: var(--gold);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.9rem 2.25rem;
@@ -375,6 +376,7 @@ body::before {
   color: var(--text-primary);
   margin-bottom: 0.5rem;
   line-height: 1.1;
+  text-align: center;
 }
 
 /* Gold underline accent on section titles */
@@ -391,19 +393,23 @@ body::before {
 }
 
 .section-intro {
+  font-family: var(--font-mono);
   text-align: center;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
   margin: 0 auto 4.5rem;
   max-width: 600px;
   line-height: 1.9;
-  letter-spacing: 0.01em;
 }
 
+/* General paragraph text in sections — DM Mono */
 .section p {
-  font-size: 1.05rem;
-  font-weight: 300;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
   line-height: 1.95;
@@ -425,8 +431,6 @@ body::before {
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
-
-  /* Override old blue */
   background: none;
   -webkit-text-fill-color: unset;
 }
@@ -447,12 +451,9 @@ body::before {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold) !important;
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
-
-  /* Override old blue */
-  color: var(--gold) !important;
 }
 
 #about h3::after {
@@ -460,11 +461,13 @@ body::before {
 }
 
 #about p {
-  font-size: 1rem;
-  font-weight: 300;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--text-secondary);
   margin-bottom: 1.25rem;
-  line-height: 1.95;
+  line-height: 2;
   text-align: center;
 }
 
@@ -501,9 +504,11 @@ body::before {
 }
 
 .tech-section .section-intro {
+  font-family: var(--font-mono);
   text-align: center;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
   margin: 0 auto 4rem;
   max-width: 600px;
@@ -561,8 +566,6 @@ body::before {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 1.5rem;
-
-  /* Override gradient */
   background: none !important;
   -webkit-text-fill-color: unset !important;
   -webkit-background-clip: unset !important;
@@ -695,6 +698,7 @@ body::before {
   background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
 }
 
+/* Project card title — Playfair stays for elegance */
 .project-card h3 {
   font-family: var(--font-display);
   font-size: 1.15rem;
@@ -702,20 +706,21 @@ body::before {
   letter-spacing: -0.02em;
   margin: 1.25rem 1.5rem 0.5rem;
   color: var(--text-primary);
-
-  /* Override gradient */
   background: none !important;
   -webkit-text-fill-color: unset !important;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
 }
 
+/* Project card description — DM Mono */
 .project-card p {
-  font-size: 0.875rem;
-  font-weight: 300;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--text-muted);
   margin: 0 1.5rem 1.5rem;
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
 /* ===== CONTACT ===== */
@@ -752,9 +757,11 @@ body::before {
 }
 
 .contact-section .section-intro {
+  font-family: var(--font-mono);
   text-align: center;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
   margin: 0 auto 4rem;
   max-width: 560px;
@@ -797,14 +804,14 @@ body::before {
   padding: 0.875rem 1rem;
   border: 1px solid var(--ink-border);
   border-radius: 2px;
-  font-size: 0.95rem;
-  font-family: var(--font-body);
-  font-weight: 300;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.04em;
   background: var(--ink);
   color: var(--text-primary);
   transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
   width: 100%;
-  letter-spacing: 0.01em;
 }
 
 .contact-form input::placeholder,
@@ -883,7 +890,6 @@ body::before {
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
-
   background: none !important;
   -webkit-text-fill-color: unset !important;
   -webkit-background-clip: unset !important;
@@ -891,8 +897,10 @@ body::before {
 }
 
 .contact-info p {
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   color: var(--text-secondary);
   line-height: 1.85;
   margin-bottom: 0;
@@ -937,10 +945,11 @@ body::before {
   margin-top: 0.5rem;
   padding: 0.875rem 1rem;
   border-radius: 2px;
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   font-weight: 400;
+  letter-spacing: 0.05em;
   text-align: center;
-  letter-spacing: 0.02em;
 }
 
 /* ===== FOOTER ===== */
@@ -1015,7 +1024,7 @@ body::before {
   .section h2::after,
   .tech-section h2::after,
   .contact-section h2::after {
-    margin: 0.75rem 0 0;
+    margin: 0.75rem auto 0;
   }
 
   .hero-image {
@@ -1050,7 +1059,6 @@ body::before {
 @media (max-width: 768px) {
   :root { --nav-h: 90px; }
 
-  /* Navbar: logo + links stacked */
   .nav-content {
     flex-direction: column;
     justify-content: center;
@@ -1071,7 +1079,6 @@ body::before {
     align-items: center !important;
     gap: 0.2rem 1rem !important;
     width: 100% !important;
-    /* reset all slide-in overrides */
     position: static !important;
     transform: none !important;
     opacity: 1 !important;
@@ -1085,7 +1092,7 @@ body::before {
   }
 
   .nav-links a {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     letter-spacing: 0.08em;
     border-bottom: none !important;
     width: auto;
@@ -1104,7 +1111,7 @@ body::before {
   }
 
   .hero-text h1 { font-size: 2.2rem; }
-  .hero-text p  { font-size: 0.95rem; }
+  .hero-text p  { font-size: 0.8rem; }
 
   .hero-image img {
     width: 13rem;
