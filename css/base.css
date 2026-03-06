@@ -1,0 +1,136 @@
+/* ============================================================
+   BASE — Reset · Tokens · Global
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Colors */
+  --ink:        #080810;
+  --ink-mid:    #0e0e1c;
+  --ink-soft:   #141428;
+  --ink-card:   #181830;
+  --ink-border: rgba(255,255,255,0.07);
+  --ink-glass:  rgba(255,255,255,0.03);
+
+  --text-primary:   #f0efe8;
+  --text-secondary: #a8a7b0;
+  --text-muted:     #5c5b68;
+
+  --gold:      #c9a96e;
+  --gold-dim:  #8a6f42;
+  --gold-glow: rgba(201,169,110,0.15);
+
+  --violet:     #7b6cfa;
+  --violet-dim: rgba(123,108,250,0.12);
+
+  /* Typography — DM Mono is the primary UI/body font */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Mono', monospace;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Spacing */
+  --nav-h: 68px;
+
+  /* Transitions */
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== GLOBAL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mono);
+  background: var(--ink);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Noise grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* ===== SECTION SHARED ===== */
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 7rem 2.5rem;
+  scroll-margin-top: var(--nav-h);
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.section h2::after,
+.tech-section h2::after,
+.contact-section h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0.75rem auto 0;
+  border-radius: 1px;
+}
+
+.section-intro {
+  font-family: var(--font-mono);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  margin: 0 auto 4.5rem;
+  max-width: 600px;
+  line-height: 1.9;
+}
+
+.section p {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.95;
+}
