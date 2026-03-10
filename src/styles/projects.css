@@ -11,7 +11,7 @@
 
 .filter-btn {
   background: transparent;
-  color: var(--text-muted);
+  color: var(--gold-dim);
   border: 1px solid var(--ink-border);
   padding: 0.55rem 1.5rem;
   border-radius: 2px;
@@ -19,7 +19,7 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: all 0.3s var(--ease);
 }
@@ -91,24 +91,22 @@
 }
 
 .project-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin: 1.25rem 1.5rem 0.5rem;
-  color: var(--text-primary);
-  background: none !important;
-  -webkit-text-fill-color: unset !important;
-  -webkit-background-clip: unset !important;
-  background-clip: unset !important;
+  color: var(--gold);
 }
 
 .project-card p {
   font-family: var(--font-mono);
   font-size: 0.9rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
   margin: 0 1.5rem 1.5rem;
   line-height: 1.85;
 }
@@ -131,9 +129,7 @@
   opacity: 0.5;
 }
 
-.project-video.video-ready {
-  opacity: 1;
-}
+.project-video.video-ready { opacity: 1; }
 
 @keyframes shimmer {
   0%   { background-position: 200% 0; }

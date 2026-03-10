@@ -10,14 +10,13 @@
 }
 
 #about h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
   margin-bottom: 0.5rem;
-  background: none;
-  -webkit-text-fill-color: unset;
 }
 
 #about h2::after {
@@ -34,11 +33,12 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold) !important;
+  color: var(--gold);
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
+  opacity: 0.7;
 }
 
 #about h3::after { display: none; }
@@ -46,9 +46,10 @@
 #about p {
   font-family: var(--font-mono);
   font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
   margin-bottom: 1.25rem;
   line-height: 2;
   text-align: center;
@@ -62,4 +63,4 @@
   transition: border-color 0.3s;
 }
 
-#about a:hover { border-color: var(--gold); }
+#about a:hover { border-color: var(--gold); opacity: 0.7; }

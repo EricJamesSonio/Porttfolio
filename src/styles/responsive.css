@@ -44,7 +44,7 @@
     overflow: visible !important;
   }
 
-  .nav-links a { font-size: 0.75rem; letter-spacing: 0.06em; border-bottom: none !important; width: auto; padding: 0.2rem 0; }
+  .nav-links a { font-size: 0.75rem; letter-spacing: 0.1em; border-bottom: none !important; width: auto; padding: 0.2rem 0; }
   .theme-button { width: 28px; height: 28px; font-size: 0.85rem; }
   .hero { padding: calc(var(--nav-h) + 3rem) 1.5rem 4rem; text-align: center; }
   .hero-text h1 { font-size: 2.2rem; }
@@ -65,7 +65,7 @@
 }
 
 @media (max-width: 480px) {
-  .nav-links a { font-size: 0.7rem; letter-spacing: 0.05em; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.1em; }
   .hero-text h1 { font-size: 1.85rem; }
   .hero-image img { width: 11rem; height: 11rem; }
   .project-video { height: 9.5rem; }
