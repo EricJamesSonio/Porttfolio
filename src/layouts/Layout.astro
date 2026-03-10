@@ -1,0 +1,36 @@
+---
+export interface Props {
+  title?: string;
+}
+const { title = 'Eric James Sonio — Portfolio' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eric James Sonio — Fullstack Developer & Backend Specialist. CS student at College of Mary Immaculate.">
+  <title>{title}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <slot />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/base.css';
+  @import '../styles/navbar.css';
+  @import '../styles/hero.css';
+  @import '../styles/about.css';
+  @import '../styles/tech.css';
+  @import '../styles/projects.css';
+  @import '../styles/contact.css';
+  @import '../styles/footer.css';
+  @import '../styles/responsive.css';
+</style>

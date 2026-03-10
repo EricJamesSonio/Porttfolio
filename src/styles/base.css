@@ -2,8 +2,6 @@
    BASE — Reset · Tokens · Global
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
-
 /* ===== RESET ===== */
 *, *::before, *::after {
   margin: 0;
@@ -13,7 +11,6 @@
 
 /* ===== DESIGN TOKENS ===== */
 :root {
-  /* Colors */
   --ink:        #080810;
   --ink-mid:    #0e0e1c;
   --ink-soft:   #141428;
@@ -32,24 +29,19 @@
   --violet:     #7b6cfa;
   --violet-dim: rgba(123,108,250,0.12);
 
-  /* Typography — DM Mono is the primary UI/body font */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'DM Mono', monospace;
   --font-mono:    'DM Mono', monospace;
 
-  /* Spacing */
   --nav-h: 68px;
 
-  /* Transitions */
   --ease:        cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out:    cubic-bezier(0, 0, 0.2, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ===== GLOBAL ===== */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-mono);
@@ -60,7 +52,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Noise grain overlay */
 body::before {
   content: '';
   position: fixed;
@@ -71,18 +62,12 @@ body::before {
   z-index: 9999;
 }
 
-/* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--ink); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
 
-/* ===== SELECTION ===== */
-::selection {
-  background: var(--gold);
-  color: var(--ink);
-}
+::selection { background: var(--gold); color: var(--ink); }
 
-/* ===== SECTION SHARED ===== */
 .section {
   max-width: 1280px;
   margin: 0 auto;
