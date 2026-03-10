@@ -135,3 +135,37 @@
   margin: 0 1.5rem 1.5rem;
   line-height: 1.85;
 }
+
+/* ===== VIDEO LAZY LOADING STATES =====
+   Add these rules to the bottom of projects.css
+   ============================================= */
+
+/* Not yet loaded — dark placeholder so no black flash */
+.project-video.video-pending {
+  background: var(--ink-card);
+  opacity: 0;
+}
+
+/* Fetching — show a subtle shimmer */
+.project-video.video-loading {
+  background: linear-gradient(
+    90deg,
+    var(--ink-card) 25%,
+    var(--ink-soft) 50%,
+    var(--ink-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  opacity: 0.5;
+}
+
+/* Fully loaded — fade in smoothly */
+.project-video.video-ready {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

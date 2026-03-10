@@ -1,5 +1,3 @@
-
-
 // ===== SCROLL ANIMATIONS =====
 const observerOptions = {
   threshold: 0.05,
@@ -14,10 +12,64 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all animated elements
 document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
   observer.observe(el);
 });
+
+
+// ===== VIDEO LAZY LOADING =====
+// On page load: strip src so browser doesn't fetch anything,
+// and show a poster placeholder instead.
+document.querySelectorAll('.project-video').forEach(video => {
+  const source = video.querySelector('source');
+  if (!source) return;
+
+  // Stash the real src, remove it so no network request fires
+  source.dataset.src = source.src;
+  source.removeAttribute('src');
+
+  // Pause & show poster state (dark card bg acts as fallback poster)
+  video.load();
+
+  // Add a CSS class so we can style the "not yet loaded" state
+  video.classList.add('video-pending');
+});
+
+// IntersectionObserver for videos — loads when card is ~200px from viewport
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const video = entry.target;
+    const source = video.querySelector('source');
+    if (!source || !source.dataset.src) return;
+
+    // Restore the src and let the browser load it
+    source.src = source.dataset.src;
+    delete source.dataset.src;
+
+    video.load();
+    video.classList.remove('video-pending');
+    video.classList.add('video-loading');
+
+    // Once enough data is buffered, play and mark as ready
+    video.addEventListener('canplay', () => {
+      video.classList.remove('video-loading');
+      video.classList.add('video-ready');
+      video.play().catch(() => {}); // silently handle autoplay blocks
+    }, { once: true });
+
+    videoObserver.unobserve(video);
+  });
+}, {
+  rootMargin: '0px 0px 200px 0px', // start loading 200px before entering view
+  threshold: 0
+});
+
+document.querySelectorAll('.project-video').forEach(video => {
+  videoObserver.observe(video);
+});
+
 
 // ===== PROJECT FILTERING =====
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -25,21 +77,20 @@ const projectCards = document.querySelectorAll('.project-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Update active button
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Filter projects
     const filter = btn.dataset.filter;
     projectCards.forEach(card => {
-    if (filter === 'all' || card.dataset.category === filter) {
-      card.style.display = '';  // ✅ lets CSS grid take over naturally
-    } else {
-      card.style.display = 'none';
-    }
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
     });
   });
 });
+
 
 // ===== SMOOTH SCROLLING FOR NAVBAR LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -57,8 +108,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
 // ===== CONTACT FORM (EmailJS) =====
-// Initialize EmailJS
 emailjs.init('ZMSS1LVAAfJWzhQQR');
 
 const contactForm = document.getElementById('contactForm');
@@ -87,12 +138,10 @@ contactForm.addEventListener('submit', function(e) {
       formMessage.style.borderRadius = '0.5rem';
       formMessage.style.display = 'block';
       contactForm.reset();
-      
-      // Reset button
+
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
-      
-      // Hide message after 5 seconds
+
       setTimeout(() => {
         formMessage.style.display = 'none';
       }, 5000);
@@ -104,11 +153,10 @@ contactForm.addEventListener('submit', function(e) {
       formMessage.style.padding = '0.75rem';
       formMessage.style.borderRadius = '0.5rem';
       formMessage.style.display = 'block';
-      
-      // Reset button
+
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
-      
+
       console.error('EmailJS Error:', error);
     });
 });
