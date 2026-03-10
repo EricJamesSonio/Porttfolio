@@ -47,8 +47,8 @@ portfolio-astro/
 ### 1. Copy your assets
 ```
 public/assets/images/eric.jpg
-public/assets/videos/starbucks.mp4
-public/assets/videos/chatly.mp4
+public/Porttfolio/assets/videos/starbucks.mp4
+public/Porttfolio/assets/videos/chatly.mp4
 ... (all your videos)
 ```
 
