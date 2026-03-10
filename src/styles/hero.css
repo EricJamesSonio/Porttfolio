@@ -1,7 +1,6 @@
 /* ============================================================
    HERO
    ============================================================ */
-
 .hero {
   min-height: 100vh;
   display: flex;
@@ -14,7 +13,6 @@
   scroll-margin-top: var(--nav-h);
 }
 
-/* Atmospheric blobs */
 .hero::before {
   content: '';
   position: absolute;
@@ -82,10 +80,7 @@
   margin-bottom: 1.5rem;
 }
 
-.hero-text h1 em {
-  font-style: normal;
-  color: var(--gold);
-}
+.hero-text h1 em { font-style: normal; color: var(--gold); }
 
 .hero-text p {
   font-family: var(--font-mono);
@@ -128,25 +123,12 @@
   z-index: 0;
 }
 
-.hero-cta span,
-.hero-cta {
-  position: relative;
-  z-index: 1;
-}
+.hero-cta span, .hero-cta { position: relative; z-index: 1; }
 
-.hero-cta:hover {
-  color: var(--ink);
-  border-color: var(--gold);
-}
+.hero-cta:hover { color: var(--ink); border-color: var(--gold); }
+.hero-cta:hover::before { transform: translateX(0); }
 
-.hero-cta:hover::before {
-  transform: translateX(0);
-}
-
-.hero-image {
-  display: flex;
-  justify-content: center;
-}
+.hero-image { display: flex; justify-content: center; }
 
 .hero-image img {
   width: 17rem;
@@ -154,15 +136,11 @@
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--gold-dim);
-  box-shadow:
-    0 0 0 8px rgba(201,169,110,0.06),
-    0 30px 80px rgba(0,0,0,0.6);
+  box-shadow: 0 0 0 8px rgba(201,169,110,0.06), 0 30px 80px rgba(0,0,0,0.6);
   transition: transform 0.5s var(--ease-spring), box-shadow 0.4s var(--ease);
 }
 
 .hero-image img:hover {
   transform: scale(1.04);
-  box-shadow:
-    0 0 0 12px rgba(201,169,110,0.08),
-    0 40px 100px rgba(0,0,0,0.7);
+  box-shadow: 0 0 0 12px rgba(201,169,110,0.08), 0 40px 100px rgba(0,0,0,0.7);
 }

@@ -1,7 +1,6 @@
 /* ============================================================
    TECH STACK
    ============================================================ */
-
 .tech-section {
   background: var(--ink-mid);
   padding: 7rem 2.5rem;
@@ -52,22 +51,17 @@
   overflow: hidden;
 }
 
-/* Gold accent bar on hover */
 .tech-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim));
   transform: scaleX(0);
   transition: transform 0.4s var(--ease);
 }
 
-.tech-card:hover::before {
-  transform: scaleX(1);
-}
+.tech-card:hover::before { transform: scaleX(1); }
 
 .tech-card:hover {
   border-color: rgba(201,169,110,0.2);
@@ -100,7 +94,4 @@
   filter: brightness(0.9) contrast(1.05);
 }
 
-.tech-card img:hover {
-  opacity: 1;
-  transform: scale(1.04);
-}
+.tech-card img:hover { opacity: 1; transform: scale(1.04); }

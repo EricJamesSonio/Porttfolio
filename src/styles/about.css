@@ -1,7 +1,6 @@
 /* ============================================================
    ABOUT
    ============================================================ */
-
 #about {
   max-width: 860px;
   margin: 0 auto;
@@ -42,9 +41,7 @@
   margin-bottom: 0.75rem;
 }
 
-#about h3::after {
-  display: none;
-}
+#about h3::after { display: none; }
 
 #about p {
   font-family: var(--font-mono);
@@ -65,6 +62,4 @@
   transition: border-color 0.3s;
 }
 
-#about a:hover {
-  border-color: var(--gold);
-}
+#about a:hover { border-color: var(--gold); }

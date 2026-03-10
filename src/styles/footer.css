@@ -1,7 +1,6 @@
 /* ============================================================
    FOOTER
    ============================================================ */
-
 .footer {
   background: var(--ink);
   color: var(--text-muted);
@@ -17,17 +16,13 @@
 /* ============================================================
    SCROLL ANIMATIONS
    ============================================================ */
-
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
 .slide-left {
   opacity: 0;
@@ -35,10 +30,7 @@
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
 }
 
-.slide-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+.slide-left.visible { opacity: 1; transform: translateX(0); }
 
 .slide-right {
   opacity: 0;
@@ -46,7 +38,4 @@
   transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
 }
 
-.slide-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+.slide-right.visible { opacity: 1; transform: translateX(0); }

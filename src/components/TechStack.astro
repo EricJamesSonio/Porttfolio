@@ -1,0 +1,67 @@
+---
+const techCards = [
+  {
+    title: 'Frontend',
+    badges: [
+      { label: 'React',        url: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react' },
+      { label: 'React Query',  url: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white' },
+      { label: 'Angular',      url: 'https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular' },
+      { label: 'JavaScript',   url: 'https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black' },
+      { label: 'HTML',         url: 'https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white' },
+      { label: 'CSS',          url: 'https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white' },
+    ]
+  },
+  {
+    title: 'Backend',
+    badges: [
+      { label: 'Node.js',    url: 'https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js' },
+      { label: 'Express',    url: 'https://img.shields.io/badge/Express.js-000000?style=for-the-badge' },
+      { label: 'FastAPI',    url: 'https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white' },
+      { label: 'ASP.NET',    url: 'https://img.shields.io/badge/ASP.NET-512BD4?style=for-the-badge&logo=dot-net' },
+      { label: 'PHP',        url: 'https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php' },
+      { label: 'Python',     url: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python' },
+    ]
+  },
+  {
+    title: 'Database',
+    badges: [
+      { label: 'MySQL',      url: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql' },
+      { label: 'PostgreSQL', url: 'https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql' },
+      { label: 'MongoDB',    url: 'https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white' },
+      { label: 'SQLite',     url: 'https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite' },
+    ]
+  },
+  {
+    title: 'Tools & Testing',
+    badges: [
+      { label: 'Jest',     url: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white' },
+      { label: 'Swagger',  url: 'https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black' },
+      { label: 'Postman',  url: 'https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white' },
+    ]
+  },
+  {
+    title: 'Deployment',
+    badges: [
+      { label: 'Render',      url: 'https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black' },
+      { label: 'Cloudinary',  url: 'https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white' },
+      { label: 'Agora',       url: 'https://img.shields.io/badge/Agora-099DFD?style=for-the-badge&logo=agora&logoColor=white' },
+    ]
+  },
+];
+---
+
+<section id="tech" class="tech-section">
+  <h2>Tech Stack</h2>
+  <p class="section-intro">The tools and technologies I work with day to day.</p>
+
+  <div class="tech-grid">
+    {techCards.map(card => (
+      <div class="tech-card">
+        <h3>{card.title}</h3>
+        {card.badges.map(badge => (
+          <img src={badge.url} alt={badge.label} loading="lazy" />
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
