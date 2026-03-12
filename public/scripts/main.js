@@ -80,46 +80,65 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 // ===== CONTACT FORM (EmailJS) =====
-emailjs.init('ZMSS1LVAAfJWzhQQR');
+// Wait for the DOM + EmailJS to be fully ready before wiring up the form
+function initContactForm() {
+  if (typeof emailjs === 'undefined') {
+    // EmailJS CDN not loaded yet — retry in 100ms
+    setTimeout(initContactForm, 100);
+    return;
+  }
 
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+  emailjs.init('ZMSS1LVAAfJWzhQQR');
 
-contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = 'Sending...';
-  submitBtn.disabled = true;
+  const contactForm = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
 
-  const templateParams = {
-    from_name: document.getElementById('name').value,
-    from_email: document.getElementById('email').value,
-    message: document.getElementById('message').value
-  };
+  if (!contactForm) return;
 
-  emailjs.send('service_c4zldhl', 'template_khkbo9r', templateParams)
-    .then(() => {
-      formMessage.textContent = '✅ Message sent successfully!';
-      formMessage.style.color = 'white';
-      formMessage.style.backgroundColor = 'rgba(34, 197, 94, 0.3)';
-      formMessage.style.padding = '0.75rem';
-      formMessage.style.borderRadius = '0.5rem';
-      formMessage.style.display = 'block';
-      contactForm.reset();
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-      setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
-    })
-    .catch((error) => {
-      formMessage.textContent = '❌ Failed to send message. Please try again later.';
-      formMessage.style.color = 'white';
-      formMessage.style.backgroundColor = 'rgba(239, 68, 68, 0.3)';
-      formMessage.style.padding = '0.75rem';
-      formMessage.style.borderRadius = '0.5rem';
-      formMessage.style.display = 'block';
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-      console.error('EmailJS Error:', error);
-    });
-});
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const templateParams = {
+      from_name: document.getElementById('name').value,
+      from_email: document.getElementById('email').value,
+      message: document.getElementById('message').value
+    };
+
+    emailjs.send('service_c4zldhl', 'template_khkbo9r', templateParams)
+      .then(() => {
+        formMessage.textContent = '✅ Message sent successfully!';
+        formMessage.style.color = 'white';
+        formMessage.style.backgroundColor = 'rgba(34, 197, 94, 0.3)';
+        formMessage.style.padding = '0.75rem';
+        formMessage.style.borderRadius = '0.5rem';
+        formMessage.style.display = 'block';
+        contactForm.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+      })
+      .catch((error) => {
+        formMessage.textContent = '❌ Failed to send message. Please try again later.';
+        formMessage.style.color = 'white';
+        formMessage.style.backgroundColor = 'rgba(239, 68, 68, 0.3)';
+        formMessage.style.padding = '0.75rem';
+        formMessage.style.borderRadius = '0.5rem';
+        formMessage.style.display = 'block';
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        console.error('EmailJS Error:', error);
+      });
+  });
+}
+
+// Kick off after DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initContactForm);
+} else {
+  initContactForm();
+}
