@@ -37,8 +37,8 @@
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-transform: none;
   color: var(--gold);
   margin: 0 auto 4rem;
   max-width: 560px;
@@ -65,6 +65,7 @@
   gap: 1.25rem;
 }
 
+/* Labels: keep uppercase for style */
 .contact-form label {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -76,7 +77,7 @@
   margin-bottom: 0.4rem;
 }
 
-/* FIND these rules and remove text-transform: uppercase from inputs */
+/* Inputs: normal case so typing looks natural */
 .contact-form input,
 .contact-form textarea {
   padding: 0.875rem 1rem;
@@ -85,8 +86,8 @@
   font-size: 1rem;
   font-family: var(--font-mono);
   font-weight: 500;
-  letter-spacing: 0.05em;      /* reduce this too, looks better */
-  text-transform: none;        /* ← ADD THIS */
+  letter-spacing: 0.05em;
+  text-transform: none;
   background: var(--ink);
   color: var(--gold);
   transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
@@ -96,7 +97,7 @@
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: var(--gold-dim);
-  text-transform: none;        /* ← CHANGE THIS */
+  text-transform: none;
   letter-spacing: 0.05em;
 }
 
@@ -147,11 +148,12 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-transform: none;
   text-align: center;
 }
 
+/* ===== RIGHT SIDE INFO PANEL ===== */
 .contact-info {
   background: var(--ink-card);
   padding: 2.5rem;
@@ -172,18 +174,25 @@
   margin-bottom: 0.25rem;
 }
 
+/* Normal case for contact details — email, phone, location */
 .contact-info p {
   font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-transform: none;
   color: var(--gold);
   line-height: 1.85;
   margin-bottom: 0;
 }
 
-.contact-info p strong { font-weight: 500; color: var(--gold); }
+.contact-info p strong {
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+}
 
 .socials { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
 
