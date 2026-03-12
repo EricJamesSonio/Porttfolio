@@ -8,7 +8,7 @@
 
   <div class="contact-container">
 
-    <form class="contact-form" id="contactForm">
+    <div class="contact-form" id="contactForm">
       <div>
         <label for="name">Name</label>
         <input type="text" id="name" required placeholder="Your Name" />
@@ -21,9 +21,9 @@
         <label for="message">Message</label>
         <textarea id="message" rows="6" required placeholder="Write your message..."></textarea>
       </div>
-      <button type="submit"><span>Send Message</span></button>
+      <button id="sendBtn"><span>Send Message</span></button>
       <p id="formMessage"></p>
-    </form>
+    </div>
 
     <div class="contact-info">
       <h3>Let's Connect</h3>
@@ -48,27 +48,38 @@
     script.onload = function () {
       emailjs.init('ZMSS1LVAAfJWzhQQR');
 
-      const contactForm = document.getElementById('contactForm');
+      const sendBtn     = document.getElementById('sendBtn');
       const formMessage = document.getElementById('formMessage');
 
-      if (!contactForm) return;
+      if (!sendBtn) return;
 
-      contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+      sendBtn.addEventListener('click', function () {
+        const nameEl    = document.getElementById('name');
+        const emailEl   = document.getElementById('email');
+        const messageEl = document.getElementById('message');
 
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+        // Basic validation since we dropped the <form>
+        if (!nameEl.value.trim() || !emailEl.value.trim() || !messageEl.value.trim()) {
+          formMessage.textContent = '⚠️ Please fill in all fields.';
+          formMessage.style.color = 'white';
+          formMessage.style.backgroundColor = 'rgba(234, 179, 8, 0.3)';
+          formMessage.style.padding = '0.75rem';
+          formMessage.style.borderRadius = '0.5rem';
+          formMessage.style.display = 'block';
+          return;
+        }
+
+        const originalText = sendBtn.textContent;
+        sendBtn.textContent = 'Sending...';
+        sendBtn.disabled = true;
 
         const templateParams = {
-          from_name: document.getElementById('name').value,
-          from_email: document.getElementById('email').value,
-          message: document.getElementById('message').value,
+          from_name:  nameEl.value,
+          from_email: emailEl.value,
+          message:    messageEl.value,
         };
 
-        emailjs
-          .send('service_c4zldhl', 'template_khkbo9r', templateParams)
+        emailjs.send('service_c4zldhl', 'template_khkbo9r', templateParams)
           .then(() => {
             formMessage.textContent = '✅ Message sent successfully!';
             formMessage.style.color = 'white';
@@ -76,9 +87,11 @@
             formMessage.style.padding = '0.75rem';
             formMessage.style.borderRadius = '0.5rem';
             formMessage.style.display = 'block';
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+            nameEl.value    = '';
+            emailEl.value   = '';
+            messageEl.value = '';
+            sendBtn.textContent = originalText;
+            sendBtn.disabled = false;
             setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
           })
           .catch((error) => {
@@ -88,8 +101,8 @@
             formMessage.style.padding = '0.75rem';
             formMessage.style.borderRadius = '0.5rem';
             formMessage.style.display = 'block';
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+            sendBtn.textContent = originalText;
+            sendBtn.disabled = false;
             console.error('EmailJS Error:', error);
           });
       });
